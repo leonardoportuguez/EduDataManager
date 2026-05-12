@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Disciplinas — EduDataManager{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h2><i class="bi bi-book-fill me-2" style="color:#db2777"></i>Disciplinas</h2>
+  <a href="{{ url_for('routes.nova_disciplina') }}" class="btn btn-sm" style="background:#db2777;color:#fff"><i class="bi bi-plus-circle me-1"></i>Nova Disciplina</a>
+</div>
+<div class="table-card">
+  <table class="table table-hover">
+    <thead><tr><th>#</th><th>Disciplina</th><th>Curso</th><th>Carga Horária</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for d in disciplinas %}
+      <tr>
+        <td class="text-muted small">{{ d.id }}</td>
+        <td class="fw-semibold">{{ d.nome_disciplina }}</td>
+        <td class="small">{{ d.nome_curso or '—' }}</td>
+        <td>{{ d.carga_horaria or '—' }}h</td>
+        <td>
+          <a href="{{ url_for('routes.editar_disciplina_route', id=d.id) }}" class="btn btn-sm btn-outline-primary py-0 px-2"><i class="bi bi-pencil"></i></a>
+          <a href="{{ url_for('routes.remover_disciplina_route', id=d.id) }}" class="btn btn-sm btn-outline-danger py-0 px-2" onclick="return confirm('Remover?')"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="text-center text-muted py-4"><i class="bi bi-inbox fs-3 d-block mb-2"></i>Nenhuma disciplina cadastrada.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

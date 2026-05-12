@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ acao }} Professor — EduDataManager{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h2><i class="bi bi-person-badge-fill me-2" style="color:#16a34a"></i>{{ acao }} Professor</h2>
+  <a href="{{ url_for('routes.professores') }}" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-1"></i>Voltar</a>
+</div>
+<div class="form-card">
+  <form method="POST">
+    <div class="row g-3">
+      <div class="col-md-8">
+        <label class="form-label">Nome completo *</label>
+        <input type="text" name="nome" class="form-control" value="{{ professor.nome if professor else '' }}" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">E-mail *</label>
+        <input type="email" name="email" class="form-control" value="{{ professor.email if professor else '' }}" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Telefone</label>
+        <input type="text" name="telefone" class="form-control" value="{{ professor.telefone if professor else '' }}">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Disciplina que leciona</label>
+        <input type="text" name="disciplina" class="form-control" value="{{ professor.disciplina if professor else '' }}">
+      </div>
+      <div class="col-12 pt-2">
+        <button type="submit" class="btn btn-success px-4"><i class="bi bi-check2 me-1"></i>Salvar</button>
+        <a href="{{ url_for('routes.professores') }}" class="btn btn-outline-secondary ms-2">Cancelar</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

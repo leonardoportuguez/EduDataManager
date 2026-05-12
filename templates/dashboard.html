@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — EduDataManager{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h2><i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard</h2>
+  <span class="text-muted small">Visão geral do sistema</span>
+</div>
+
+<!-- Cards de estatísticas -->
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dbeafe">
+        <i class="bi bi-people-fill text-primary"></i>
+      </div>
+      <div>
+        <div class="stat-label">Total de Alunos</div>
+        <div class="stat-value">{{ dados.alunos }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dcfce7">
+        <i class="bi bi-person-badge-fill" style="color:#16a34a"></i>
+      </div>
+      <div>
+        <div class="stat-label">Professores</div>
+        <div class="stat-value">{{ dados.professores }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fef9c3">
+        <i class="bi bi-journal-bookmark-fill" style="color:#ca8a04"></i>
+      </div>
+      <div>
+        <div class="stat-label">Cursos Ativos</div>
+        <div class="stat-value">{{ dados.cursos }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fce7f3">
+        <i class="bi bi-book-fill" style="color:#db2777"></i>
+      </div>
+      <div>
+        <div class="stat-label">Disciplinas</div>
+        <div class="stat-value">{{ dados.disciplinas }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Atalhos rápidos -->
+<div class="row g-3">
+  <div class="col-12">
+    <div class="table-card p-4">
+      <h6 class="fw-bold mb-3">Acesso Rápido</h6>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="{{ url_for('routes.novo_aluno') }}" class="btn btn-primary btn-sm">
+          <i class="bi bi-person-plus me-1"></i>Novo Aluno
+        </a>
+        <a href="{{ url_for('routes.novo_professor') }}" class="btn btn-success btn-sm">
+          <i class="bi bi-person-plus me-1"></i>Novo Professor
+        </a>
+        <a href="{{ url_for('routes.novo_curso') }}" class="btn btn-warning btn-sm">
+          <i class="bi bi-plus-circle me-1"></i>Novo Curso
+        </a>
+        <a href="{{ url_for('routes.nova_disciplina') }}" class="btn btn-info btn-sm text-white">
+          <i class="bi bi-plus-circle me-1"></i>Nova Disciplina
+        </a>
+        <a href="{{ url_for('routes.notas') }}" class="btn btn-secondary btn-sm">
+          <i class="bi bi-clipboard2-check me-1"></i>Lançar Notas
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
