@@ -169,7 +169,7 @@ O sistema utiliza:
 
 ## 👨‍💻 Desenvolvido por
 
-Leonardo Anderson Nascimento
+Leonardo Portuguez do Nascimento
 
 Projeto desenvolvido para fins de estudo, portfólio e evolução prática em desenvolvimento Full Stack com Python.
 
